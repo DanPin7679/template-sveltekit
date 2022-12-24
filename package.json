@@ -30,6 +30,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@auth/sveltekit": "^0.1.9",
 		"bcrypt": "^5.1.0",
 		"jsonwebtoken": "^9.0.0",
 		"mongodb": "^4.13.0",

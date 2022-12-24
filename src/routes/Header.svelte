@@ -1,5 +1,6 @@
 <script>
 	import { menus } from '$lib/constants/menus';
+	import { page } from '$app/stores';
 </script>
 
 <header class="border-b-2 border-blue-border">
@@ -11,8 +12,16 @@
 			{/each}
 		</nav>
 		<div class="flex flex-row justify-between gap-4">
-			<a href="/users/login">Login</a>
-			<a href="/users/signup">Signup</a>
+			<a href="/users/login">
+				{#if $page.data.session}
+					Logout
+				{:else}
+					Login
+				{/if}
+			</a>
+			{#if !$page.data.session}
+				<a href="/users/signup">Signup</a>
+			{/if}
 		</div>
 	</div>
 </header>
