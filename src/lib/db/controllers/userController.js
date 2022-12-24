@@ -43,13 +43,12 @@ export const signinUser = async (email, password) => {
 	if (!user) {
 		throw Error('Incorrect email... have you already signup?');
 	}
-	console.log(user);
+	
 	const match = await bcrypt.compare(password, user.password);
 	if (!match) {
 		throw Error('Incorrect password!');
 	}
 
 	const token = createToken(user._id);
-	console.log('test login', { user: user, isLogin: match, token: token });
 	return { user: user, isLogin: match, token: token };
 };
